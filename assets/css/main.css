@@ -1,0 +1,99 @@
+    body {
+      font-family: Arial, sans-serif;
+      background: #d49a6a;
+      margin: 0;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    #app {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .container {
+      background: #b3ecff;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .btn {
+      background: white;
+      border: none;
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .input-container {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      width: 100%;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    input {
+      flex: 1;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+    }
+
+    .action-btn {
+      cursor: pointer;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.9rem;
+    }
+
+    .name-list {
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    .name-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+      border-radius: 0.5rem;
+    }
+
+    .name-item span {
+      flex: 1;
+      font-size: 1rem;
+    }
+
+    .name-item input {
+      flex: 1;
+      padding: 0.3rem;
+      font-size: 1rem;
+    }
+
+    .name-actions {
+      display: flex;
+      gap: 0.4rem;
+    }
