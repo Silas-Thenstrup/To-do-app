@@ -1,13 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script defer src="assets/js/app.js"defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landingpage</title>
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    <div id="app"></div>
+    <div class="phone-container" id="phoneContainer">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span>20:39</span>
+            <div class="battery">
+                <span>📶 📶 🔋</span>
+                <span>100%</span>
+            </div>
+        </div>
+
+        <!-- App Container -->
+        <div id="app"></div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-btn" onclick="app.showScreen('home')" id="homeNav">🏠</button>
+            <button class="nav-btn" onclick="app.showScreen('calendar')" id="calendarNav">📅</button>
+            <button class="nav-btn" onclick="app.showScreen('settings')" id="settingsNav">⚙️</button>
+        </div>
+    </div>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>

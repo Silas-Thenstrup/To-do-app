@@ -1,99 +1,379 @@
-    body {
-      font-family: Arial, sans-serif;
-      background: #d49a6a;
-      margin: 0;
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    #app {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      max-width: 400px;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(180deg, #E8E8E8 0%, #F5F5F5 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
 
-    .container {
-      background: #b3ecff;
-      padding: 0.5rem 1rem;
-      border-radius: 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      width: 100%;
-    }
+        body.dark {
+            background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+        }
 
-    .btn {
-      background: white;
-      border: none;
-      border-radius: 50%;
-      width: 3rem;
-      height: 3rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      font-size: 1.5rem;
-      flex-shrink: 0;
-    }
+        .phone-container {
+            width: 375px;
+            height: 812px;
+            background: #C19A6B;
+            border-radius: 40px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
 
-    .input-container {
-      margin-top: 1rem;
-      display: flex;
-      gap: 0.5rem;
-      width: 100%;
-    }
+        .phone-container.dark {
+            background: #2d2d2d;
+        }
 
-    .hidden {
-      display: none;
-    }
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: black;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
 
-    input {
-      flex: 1;
-      padding: 0.5rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 0.5rem;
-    }
+        .phone-container.dark .status-bar {
+            color: white;
+        }
 
-    .action-btn {
-      cursor: pointer;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 0.5rem;
-      padding: 0.4rem 0.6rem;
-      font-size: 0.9rem;
-    }
+        .battery {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
 
-    .name-list {
-      margin-top: 1rem;
-      width: 100%;
-    }
+        .screen {
+            display: none;
+            height: calc(100% - 60px);
+            animation: slideIn 0.3s ease;
+        }
 
-    .name-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #fff;
-      padding: 0.5rem;
-      margin-bottom: 0.5rem;
-      border-radius: 0.5rem;
-    }
+        .screen.active {
+            display: flex;
+            flex-direction: column;
+        }
 
-    .name-item span {
-      flex: 1;
-      font-size: 1rem;
-    }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
 
-    .name-item input {
-      flex: 1;
-      padding: 0.3rem;
-      font-size: 1rem;
-    }
+        /* Start Screen */
+        .start-screen {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-    .name-actions {
-      display: flex;
-      gap: 0.4rem;
-    }
+        .start-title {
+            color: #000;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .phone-container.dark .start-title {
+            color: white;
+        }
+
+        .continue-btn {
+            background: #fff;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+
+        .continue-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Color Picker Screen */
+        .color-picker-screen {
+            padding: 20px 0;
+        }
+
+        .welcome-text {
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .phone-container.dark .welcome-text {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .dark-mode-toggle {
+            background: #1a1a1a;
+            border: none;
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            background: #333;
+        }
+
+        .settings-btn {
+            background: rgba(0,0,0,0.1);
+            border: none;
+            border-radius: 15px;
+            padding: 20px;
+            color: #333;
+            font-size: 24px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .phone-container.dark .settings-btn {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .settings-btn:hover {
+            background: rgba(0,0,0,0.2);
+        }
+
+        /* Main Todo Screen */
+        .todo-screen {
+            padding: 20px 0;
+        }
+
+        .todo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            flex: 1;
+            padding-bottom: 20px;
+            overflow-y: auto;
+        }
+
+        .todo-item {
+            background: #B8E6FF;
+            border-radius: 20px;
+            padding: 20px 15px;
+            min-height: 140px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .todo-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .todo-item.completed {
+            opacity: 0.6;
+            transform: scale(0.95);
+        }
+
+        .todo-header {
+            background: #C19A6B;
+            color: #000;
+            padding: 8px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .todo-content {
+            flex: 1;
+            color: #000;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .todo-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .action-btn {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .delete-btn {
+            background: #ff4757;
+            color: white;
+        }
+
+        .complete-btn {
+            background: #2ed573;
+            color: white;
+        }
+
+        .action-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Settings Screen */
+        .settings-screen {
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .settings-header {
+            background: #C19A6B;
+            color: black;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            display: inline-block;
+        }
+
+        /* Navigation */
+        .navigation {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn.active {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Add Todo Form */
+        .add-todo-form {
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .phone-container.dark .add-todo-form {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .add-todo-form.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #C19A6B;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            background: white;
+        }
+
+        .phone-container.dark .form-input {
+            background: #333;
+            color: white;
+            border-color: #666;
+        }
+
+        .form-btn {
+            background: #C19A6B;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .form-btn:hover {
+            background: #a67c52;
+        }
+
+        .form-btn.cancel {
+            background: #666;
+        }
+
+        .form-btn.cancel:hover {
+            background: #555;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 400px) {
+            .phone-container {
+                width: 100vw;
+                height: 100vh;
+                border-radius: 0;
+            }
+        }
